@@ -1,0 +1,25 @@
+body{
+  background-color: rgb(101, 158, 101);
+  color: white;
+  align-items: center;
+  text-align: center;
+}
+.container {
+  text-align: center;
+  margin: 200px;
+}
+.heading{
+  font-size: 50px;
+}
+
+h1{
+  font-size: 100px;
+}
+
+button {
+  height: 50px;
+  width: 100px;
+  color:lightgreen;
+  border-radius: 10px;
+  background-color: teal;
+}
