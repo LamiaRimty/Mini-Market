@@ -18,18 +18,38 @@ const PRODUCTS = [
 function SearchBar() {
   return (
     <form>
-      <label>Which Product are you looking for?</label>
+      <label className="searchLabel">Which Product are you looking for?</label>
       <input type="text" placeholder="Search.." />
-      <lebel>
-        <input type="checkbox" />
-        Only show product in stock
-      </lebel>
+      <div>
+        <lebel className="check-label">
+          {" "}
+          <input type="checkbox" />
+          Only show product in stock
+        </lebel>
+      </div>
     </form>
   );
 }
 
 function ProductTable() {
   return <></>;
+}
+
+function ProductRow({ product }) {
+  return (
+    <tr>
+      <td>{product.name}</td>
+      <td>{product.price}</td>
+    </tr>
+  );
+}
+
+function productCategoryRow({ category }) {
+  return (
+    <tr>
+      <th>{category}</th>
+    </tr>
+  );
 }
 
 export default function MarketList() {

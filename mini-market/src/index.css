@@ -23,3 +23,19 @@ button {
   border-radius: 10px;
   background-color: teal;
 }
+
+
+label{
+ display: block;
+ margin:5px 0 10px 0;
+ 
+}
+.searchLabel{
+  font-size: 20px;
+
+}
+
+.check-label{
+  color: grey;
+  opacity: 0.8;
+}
