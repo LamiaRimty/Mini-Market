@@ -39,3 +39,7 @@ label{
   color: grey;
   opacity: 0.8;
 }
+
+td{
+  margin: 200px;
+}
