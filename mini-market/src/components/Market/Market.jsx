@@ -1,8 +1,17 @@
+import { useState } from "react";
+
 function FilterableProductTable({ products }) {
+  const [filterText, setFilterText] = useState("");
+  const [inStockOnly, setInStockOnly] = useState(false);
+
   return (
-    <div>
-      <SearchBar />
-      <ProductTable products={products} />
+    <div className="MarketPlace">
+      <SearchBar filterText={filterText} inStockOnly={inStockOnly} />
+      <ProductTable
+        products={products}
+        filterText={filterText}
+        inStockOnly={inStockOnly}
+      />
     </div>
   );
 }
@@ -15,7 +24,7 @@ const PRODUCTS = [
   { category: "Fruits", name: "Strawberry🍓", stocked: false, price: "2$" },
 ];
 
-function SearchBar() {
+function SearchBar({ filterText, inStockOnly }) {
   return (
     <form>
       <label className="searchLabel">Which Product are you looking for?</label>
@@ -23,7 +32,7 @@ function SearchBar() {
       <div>
         <lebel className="check-label">
           {" "}
-          <input type="checkbox" />
+          <input type="checkbox" value={filterText} />
           Only show product in stock
         </lebel>
       </div>
@@ -54,11 +63,14 @@ function ProductCategoryRow({ category }) {
   );
 }
 
-function ProductTable({ products }) {
+function ProductTable({ products, inStockOnly, filterText }) {
   const rows = [];
   let lastCategory = null;
 
   products.forEach((product) => {
+    if (product.name.toLowerCase().indexOf(filterText.toLowerCase()) === -1) {
+      return;
+    }
     if (product.category !== lastCategory) {
       rows.push(
         <ProductCategoryRow
